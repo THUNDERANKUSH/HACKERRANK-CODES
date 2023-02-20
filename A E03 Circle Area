@@ -1,0 +1,8 @@
+#!/bin/python3
+
+import sys
+
+if __name__ == "__main__":
+    radius = int(input().strip())
+    a=3.14
+    print(a*radius*radius)
