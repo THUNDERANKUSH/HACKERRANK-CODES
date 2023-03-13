@@ -1,0 +1,14 @@
+import math
+
+# Input the size of Parliament Square and flagstones
+n, m, a = map(int, input().split())
+
+# Calculate the number of flagstones required for the width and length of the square
+width_flagstones = math.ceil(n / a)
+length_flagstones = math.ceil(m / a)
+
+# Calculate the total number of flagstones required
+total_flagstones = width_flagstones * length_flagstones
+
+# Output the result
+print(total_flagstones)
