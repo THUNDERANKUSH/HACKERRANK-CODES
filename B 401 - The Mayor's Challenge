@@ -1,0 +1,22 @@
+def find_slope(x1, y1, x2, y2):
+    """
+    This function calculates the slope of a line segment given its two end points.
+    """
+    if x2 - x1 == 0:
+        return None
+    else:
+        return (y2 - y1) / (x2 - x1)
+
+# Read in the inputs
+x1, y1, x2, y2 = map(int, input().split())
+x3, y3, x4, y4 = map(int, input().split())
+
+# Calculate the slopes of the two line segments
+slope1 = find_slope(x1, y1, x2, y2)
+slope2 = find_slope(x3, y3, x4, y4)
+
+# Check if the slopes are equal
+if slope1 == slope2:
+    print("yes")
+else:
+    print("no")
