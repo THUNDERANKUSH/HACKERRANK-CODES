@@ -1,0 +1,12 @@
+# Power and Mod Power in Python - HackerRank Solution
+# Python 3
+# Enter your code here. Read input from STDIN. Print output to STDOUT
+# Power and Mod Power in Python - Hacker Rank Solution START
+a = int(input())
+b = int(input())
+m = int(input())
+
+print(pow(a,b))
+
+print(pow(a,b,m))
+# Power and Mod Power in Python - Hacker RankSolution END
