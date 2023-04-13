@@ -1,0 +1,29 @@
+def longest_substring(s):
+    # Initialize variables
+    start = 0
+    end = 0
+    max_len = 0
+    chars = set()
+
+    # Loop through the string
+    while end < len(s):
+        # If the current character is not in the set, add it and move the end pointer
+        if s[end] not in chars:
+            chars.add(s[end])
+            end += 1
+            max_len = max(max_len, end - start)
+        # If the current character is in the set, remove the character at the start pointer and move the start pointer
+        else:
+            chars.remove(s[start])
+            start += 1
+
+    return max_len
+
+
+# Get input
+n = int(input())
+s = input()
+
+# Find the length of the longest substring without repeating characters
+result = longest_substring(s)
+print(result)
