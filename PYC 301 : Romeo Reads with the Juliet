@@ -1,0 +1,35 @@
+#include <iostream>
+#include <string>
+#include <bitset>
+
+using namespace std;
+
+string check_if_won(string romeo, string juliet) {
+    bitset<26> alphabet;
+    for (char c : romeo) {
+        alphabet[c - 'a'] = true;
+    }
+    for (char c : juliet) {
+        alphabet[c - 'A'] = true;
+    }
+    return alphabet.all() ? "France" : "Italy";
+}
+
+int main() {
+    string s;
+    getline(cin, s);
+
+    string romeo, juliet;
+    for (char c : s) {
+        if (islower(c)) {
+            romeo += c;
+        }
+        else if (isupper(c)) {
+            juliet += c;
+        }
+    }
+
+    cout << check_if_won(romeo, juliet) << endl;
+    
+    return 0;
+}
