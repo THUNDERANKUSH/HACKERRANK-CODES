@@ -1,0 +1,56 @@
+class ListNode:
+    def __init__(self, val=0, next=None):
+        self.val = val
+        self.next = next
+
+def addTwoNumbers(l1: ListNode, l2: ListNode) -> ListNode:
+    # create a dummy head for the result linked list
+    dummy = ListNode()
+    # create a current node to traverse the result linked list
+    curr = dummy
+    # initialize carry to 0
+    carry = 0
+    # loop through both linked lists
+    while l1 or l2 or carry:
+        # get the values of the current nodes, or 0 if the nodes are None
+        val1 = l1.val if l1 else 0
+        val2 = l2.val if l2 else 0
+        # calculate the sum and the carry
+        total = val1 + val2 + carry
+        carry = total // 10
+        # create a new node with the sum mod 10
+        curr.next = ListNode(total % 10)
+        # move to the next node in the result linked list
+        curr = curr.next
+        # move to the next node in both linked lists if they are not None
+        if l1:
+            l1 = l1.next
+        if l2:
+            l2 = l2.next
+    # return the head of the result linked list
+    return dummy.next
+
+# read input
+h1, h2 = map(int, input().split())
+nums1 = list(map(int, input().split()))
+nums2 = list(map(int, input().split()))
+
+# create the linked lists
+l1 = ListNode(nums1[0])
+curr = l1
+for i in range(1, len(nums1)):
+    curr.next = ListNode(nums1[i])
+    curr = curr.next
+l2 = ListNode(nums2[0])
+curr = l2
+for i in range(1, len(nums2)):
+    curr.next = ListNode(nums2[i])
+    curr = curr.next
+
+# calculate the sum of the two linked lists
+result = addTwoNumbers(l1, l2)
+
+# print the result as a linked list
+while result:
+    print(result.val, end=' ')
+    result = result.next
