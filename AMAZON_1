@@ -1,0 +1,17 @@
+n = int(input())
+nums = list(map(int, input().split()))
+target = int(input())
+
+# Create a dictionary to store the complement of each number
+complements = {}
+
+# Iterate through the array
+for i in range(n):
+    # If the complement of the current number is in the dictionary
+    if nums[i] in complements:
+        # Return the indices of the two numbers
+        print(complements[nums[i]], i)
+        break
+    else:
+        # Add the complement of the current number to the dictionary
+        complements[target - nums[i]] = i
