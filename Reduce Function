@@ -1,0 +1,9 @@
+
+from fractions import Fraction
+from functools import reduce
+
+def product(fracs):
+    # Reduce Function in Python - Hacker Rank Solution START
+    t = Fraction(reduce(lambda x, y: x * y, fracs)) # complete this line with a reduce statement
+    # Reduce Function in Python - Hacker Rank Solution END
+    return t.numerator, t.denominator
