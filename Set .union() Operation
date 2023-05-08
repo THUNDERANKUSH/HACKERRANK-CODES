@@ -1,0 +1,14 @@
+# set.union() Operators in Python - Hacker Rank Solution
+# Python 3
+# Enter your code here. Read input from STDIN. Print output to STDOUT
+# set.union() Operators in Python - Hacker Rank Solution START
+N1 = int(input())
+storage1 = set(input().split());
+
+N2 = int(input())
+storage2 = set(input().split());
+
+storage3 = storage1.union(storage2)
+
+print(len(storage3))
+# set.union() Operators in Python - Hacker Rank Solution END
