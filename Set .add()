@@ -1,0 +1,14 @@
+ 
+# Set.Add() in Python - Hacker Rank Solution 
+# Python 3
+# Enter your code here. Read input from STDIN. Print output to STDOUT
+# Set.Add() in Python - Hacker Rank Solution START
+N = int(input())
+
+countries = set()
+
+for i in range(N):
+    countries.add(input())
+
+print(len(countries))
+# Set.Add() in Python - Hacker 
