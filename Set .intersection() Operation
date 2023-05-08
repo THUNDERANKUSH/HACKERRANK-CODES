@@ -1,0 +1,14 @@
+# Set .intersection() Operation in python - Hacker Rank Solution
+# Python 3
+# Enter your code here. Read input from STDIN. Print output to STDOUT
+# Set .intersection() Operation in python - Hacker Rank Solution START
+N1 = int(input())
+storage1 = set(input().split())
+
+N2 = int(input())
+storage2 = set(input().split())
+
+storage3 = storage2.intersection(storage1)
+
+print(len(storage3))
+# Set .intersection() Operation in python - Hacker Rank Solution END
