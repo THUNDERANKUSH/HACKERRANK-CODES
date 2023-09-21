@@ -1,0 +1,20 @@
+# Step 1: Read input values
+N, K = map(int, input().split())
+words = input().split()
+
+# Step 2: Create a dictionary to store word frequencies
+word_frequency = {}
+
+# Step 3: Iterate through words and update frequencies
+for word in words:
+    word_frequency[word] = word_frequency.get(word, 0) + 1
+
+# Step 4: Create a list of tuples (word, frequency)
+word_frequency_list = [(word, freq) for word, freq in word_frequency.items()]
+
+# Step 5: Sort the list first by frequency (descending), then by lexicographical order
+word_frequency_list.sort(key=lambda x: (-x[1], x[0]))
+
+# Step 6: Extract the first K words and print them
+for i in range(K):
+    print(word_frequency_list[i][0], end=' ')
