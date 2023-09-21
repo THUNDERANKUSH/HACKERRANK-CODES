@@ -1,0 +1,30 @@
+def generateWords(s):
+    def backtrack(curr_word, index):
+        if index == len(s):
+            result.append(curr_word)
+            return
+
+        if s[index] == '{':
+            options = []
+            j = index + 1
+            while s[j] != '}':
+                if s[j] != ',':
+                    options.append(s[j])
+                j += 1
+            for option in options:
+                backtrack(curr_word + option, j + 1)
+        else:
+            backtrack(curr_word + s[index], index + 1)
+
+    result = []
+    backtrack("", 0)
+    result.sort()
+    return result
+
+# Input
+s = input()
+
+# Calculate the result and print it
+result = generateWords(s)
+for word in result:
+    print(word)
