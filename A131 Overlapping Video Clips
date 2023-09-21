@@ -1,0 +1,27 @@
+def videoStitching(clips, time):
+    clips.sort(key=lambda x: (x[0], -x[1]))
+    count = 0
+    current_end = 0
+    i = 0
+
+    while i < len(clips) and current_end < time:
+        max_end = current_end
+        while i < len(clips) and clips[i][0] <= current_end:
+            max_end = max(max_end, clips[i][1])
+            i += 1
+
+        if max_end == current_end:
+            return -1
+
+        current_end = max_end
+        count += 1
+
+    return count if current_end >= time else -1
+
+# Input
+N, t = map(int, input().split())
+clips = [list(map(int, input().split())) for _ in range(N)]
+
+# Calculate the result and print it
+result = videoStitching(clips, t)
+print(result)
