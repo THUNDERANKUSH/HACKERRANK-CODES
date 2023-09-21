@@ -1,0 +1,14 @@
+N, M = map(int, input().split())
+candies = list(map(int, input().split()))
+
+max_candies = max(candies)
+
+result = []
+
+for kid_candies in candies:
+    if kid_candies + M >= max_candies:
+        result.append('true')
+    else:
+        result.append('false')
+
+print(" ".join(map(str, result)))
