@@ -1,0 +1,32 @@
+def longestSubstring(s, k):
+    if not s:
+        return 0
+    
+    char_count = {}
+    for char in s:
+        if char in char_count:
+            char_count[char] += 1
+        else:
+            char_count[char] = 1
+    
+    invalid_chars = [char for char, count in char_count.items() if count < k]
+    
+    if not invalid_chars:
+        return len(s)
+    
+    max_length = 0
+    start = 0
+    for i in range(len(s)):
+        if s[i] in invalid_chars:
+            max_length = max(max_length, longestSubstring(s[start:i], k))
+            start = i + 1
+    
+    max_length = max(max_length, longestSubstring(s[start:], k))
+    
+    return max_length
+
+k = int(input())
+s = input()
+
+result = longestSubstring(s, k)
+print(result)
