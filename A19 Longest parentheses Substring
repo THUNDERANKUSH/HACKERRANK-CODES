@@ -1,0 +1,26 @@
+def longestValidParentheses(s):
+    stack = []  # Create an empty stack to store indices of open parentheses
+    max_length = 0
+    last_invalid = -1  # Index of the last invalid closing parenthesis
+    
+    for i in range(len(s)):
+        if s[i] == '(':
+            stack.append(i)  # Push the index of an open parenthesis onto the stack
+        else:  # s[i] == ')'
+            if not stack:  # If stack is empty, this closing parenthesis is invalid
+                last_invalid = i  # Update the index of the last invalid closing parenthesis
+            else:
+                stack.pop()  # Matched a pair of parentheses
+                if not stack:  # If stack becomes empty after popping, the substring before i is valid
+                    max_length = max(max_length, i - last_invalid)
+                else:
+                    max_length = max(max_length, i - stack[-1])  # Calculate the length of valid substring
+                
+    return max_length
+
+# Input
+s = input()
+
+# Compute and print the result
+result = longestValidParentheses(s)
+print(result)
