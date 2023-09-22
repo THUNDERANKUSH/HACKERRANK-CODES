@@ -1,0 +1,33 @@
+def minJumps(nums):
+    n = len(nums)
+    if n <= 1:
+        return 0  # No jumps needed for an array of size 1 or less
+
+    max_reach = nums[0]  # Maximum index that can be reached from the current position
+    steps = nums[0]      # Number of steps remaining at the current position
+    jumps = 1           # Initialize jumps to 1 since we start at the first index
+
+    for i in range(1, n):
+        if i == n - 1:
+            return jumps  # Reached the end
+
+        max_reach = max(max_reach, i + nums[i])  # Update the maximum reachable index
+
+        steps -= 1  # Decrease the number of steps remaining
+
+        if steps == 0:
+            jumps += 1
+            if i >= max_reach:
+                return -1  # Cannot reach the end from this position
+
+            steps = max_reach - i
+
+    return -1  # In case we don't reach the end
+
+# Input
+n = int(input())
+nums = list(map(int, input().split()))
+
+# Compute and print the result
+result = minJumps(nums)
+print(result)
