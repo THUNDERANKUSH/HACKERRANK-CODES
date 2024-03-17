@@ -1,0 +1,23 @@
+def check_win(sentence):
+    romeo_letters = set()
+    juliet_letters = set()
+    
+    for char in sentence:
+        if char.islower():
+            romeo_letters.add(char)
+        elif char.isupper():
+            juliet_letters.add(char.lower())
+    
+    all_letters = set('abcdefghijklmnopqrstuvwxyz')
+    
+    if all_letters <= romeo_letters.union(juliet_letters):
+        return "France"
+    else:
+        return "Italy"
+
+# Reading input
+sentence = input().strip()
+
+# Checking if Romeo and Juliet win
+result = check_win(sentence)
+print(result)
