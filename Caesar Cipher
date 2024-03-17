@@ -1,0 +1,21 @@
+def caesarCipher(s, k):
+    encrypted_string = ""
+    
+    for char in s:
+        if char.isalpha():  # Check if the character is a letter
+            base = ord('a') if char.islower() else ord('A')  # Determine base ASCII value based on case
+            shifted_char = chr((ord(char) - base + k) % 26 + base)  # Apply rotation
+            encrypted_string += shifted_char
+        else:
+            encrypted_string += char  # Non-alphabetic characters remain unchanged
+    
+    return encrypted_string
+
+# Reading input
+n = int(input().strip())
+s = input().strip()
+k = int(input().strip())
+
+# Encrypting the string
+encrypted_message = caesarCipher(s, k)
+print(encrypted_message)
