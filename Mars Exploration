@@ -1,0 +1,19 @@
+def marsExploration(s):
+    altered_count = 0
+    
+    for i in range(0, len(s), 3):
+        if s[i] != 'S':
+            altered_count += 1
+        if s[i + 1] != 'O':
+            altered_count += 1
+        if s[i + 2] != 'S':
+            altered_count += 1
+    
+    return altered_count
+
+# Reading input
+received_signal = input().strip()
+
+# Counting altered letters
+changed_letters = marsExploration(received_signal)
+print(changed_letters)
